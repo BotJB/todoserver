@@ -5,8 +5,7 @@ const {v4:uuidv4}=require('uuid')
 const jwt=require('jsonwebtoken')
 const app=express();
 const bcrypt=require('bcrypt')
-const cors=require('cors')
-app.use(cors())
+
 app.use(express.json())
 app.get("/todos/:email",async (req,res)=>{
     console.log('this route was hit')
