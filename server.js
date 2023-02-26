@@ -16,7 +16,7 @@ app.use(express.json())
 
 
 app.get('/',async(res,req)=>{
-  res.send('hello there')
+  res.status(200).json({message:'This is the get request'})
 })
 //this method is to get all the todos for a specific user
 app.get("/todos/:email",async (req,res)=>{
