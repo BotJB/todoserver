@@ -15,14 +15,17 @@ beforeAll(async () => {
 });
 
 afterAll(async () => {
-  // Disconnect from the database and close the server after running tests
   await mongoose.disconnect();
-  server.close();
+  server.close(() => console.log('Server closed'));
+  await new Promise(resolve => setTimeout(resolve, 1000)); // Ensure all operations are completed
 });
 
+
 afterEach(() => {
-  jest.clearAllTimers();
+  jest.clearAllMocks(); // Clear all mocks
+  jest.clearAllTimers(); // Clear all timers
 });
+
 
 describe('GET /', () => {
   it('should return a 200 status and a message', async () => {
