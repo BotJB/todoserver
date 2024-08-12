@@ -141,6 +141,8 @@ app.post('/signup',async(req,res)=>{
 })
 
 
-app.listen(PORT,()=>{
-    console.log(`App is running on PORT ${PORT}`)
-})
+const server = app.listen(PORT, () => {
+  console.log(`App is running on PORT ${PORT}`);
+});
+
+module.exports={app,server};
